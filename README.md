@@ -45,3 +45,61 @@ JS remove multiple Class that assigned on element
    }
    
 ```
+
+```HTML
+<!DOCTYPE html>
+<!-- Created By CodingNepal -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Custom Range Slider | CodingNepal</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <style>
+
+    </style>
+  </head>
+  <body>
+  <div class="range">
+
+    <input type="checkbox" class="data-val active" id="data-1" name="data-1" value="200">
+    <input type="checkbox" class="data-val" id="data-2" name="data-2" value="1000">
+    <input type="checkbox" class="data-val" id="data-3" name="data-3" value="2000">
+    <input type="checkbox" class="data-val" id="data-4" name="data-4" value="5000">
+    <input type="checkbox" class="data-val" id="data-5" name="data-5" value="20000">
+    <input type="checkbox" class="data-val" id="data-6" name="data-6" value="50000">
+
+ </div>
+<script>
+
+$(document).ready(function() {
+  
+  let linkPrice = '.data-val';	
+	
+  jQuery(linkPrice).css('cursor','pointer');
+   
+  const unLoopActiveClass = function(cID, conID) {
+ 
+   // addClass on it can be attribute if you wish!	
+   let activeClass = jQuery(cID);
+ 
+   // Then check until condition get true!    
+   if(activeClass.hasClass('active')) { 
+   
+   activeClass.removeClass('active'); 
+   jQuery('#' + conID).addClass('active');
+     
+   }
+  }
+   
+  jQuery(linkPrice).bind('click', function() {
+ 
+    let unloopNextID = jQuery(this)[0].id; 
+    
+    unLoopActiveClass(linkPrice, unloopNextID); 
+     
+  });
+   
+
+});
+```
